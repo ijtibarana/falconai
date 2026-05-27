@@ -1,0 +1,749 @@
+{
+  "campaigns": [
+    {
+      "id": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "name": "B2B Expansion",
+      "type": "b2b",
+      "lane": "public_business_research",
+      "status": "draft",
+      "autonomyLevel": "review_required",
+      "goal": "Find shops and boutiques.",
+      "offer": "Wholesale access.",
+      "jurisdictions": [
+        "UK"
+      ],
+      "dailyActionLimit": 50,
+      "enabledChannels": [
+        "email"
+      ],
+      "riskAcceptanceRequired": false,
+      "createdAt": "2026-05-27T18:39:22.970Z",
+      "attachments": []
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead_d3518a96-171a-419c-8de4-6fc6332fbd17",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Apify discovered lead",
+      "type": "b2b_contact",
+      "companyName": "Apify discovered lead",
+      "segment": "Apify discovered lead",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "http://www.google.com/search?q=site%3Ainstagram.com+%22modest+fashion+boutique%22+%22London%2C+United+Kingdom%22+%22%40gmail.com%22+OR+%22%40yahoo.com%22+OR+%22%40hotmail.com%22+OR+%22email%22",
+      "lane": "public_business_research",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 65,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "email": "favmodestywear@gmail.com",
+        "instagram": "http://www.google.com/search?q=site%3Ainstagram.com+%22modest+fashion+boutique%22+%22London%2C+United+Kingdom%22+%22%40gmail.com%22+OR+%22%40yahoo.com%22+OR+%22%40hotmail.com%22+OR+%22email%22"
+      },
+      "website": "http://www.google.com/search?q=site%3Ainstagram.com+%22modest+fashion+boutique%22+%22London%2C+United+Kingdom%22+%22%40gmail.com%22+OR+%22%40yahoo.com%22+OR+%22%40hotmail.com%22+OR+%22email%22",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_682501a0-79b1-448f-b0cb-3a9b8b97407c",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Apify discovered lead",
+      "type": "b2b_contact",
+      "companyName": "Apify discovered lead",
+      "segment": "Apify discovered lead",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "http://www.google.com/search?q=site%3Ainstagram.com+%22abaya+store%22+%22London%2C+United+Kingdom%22+%22%40gmail.com%22+OR+%22%40yahoo.com%22+OR+%22%40hotmail.com%22+OR+%22email%22",
+      "lane": "public_business_research",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 65,
+      "intentScore": 51,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "email": "salaam@yaaukhti.com",
+        "instagram": "http://www.google.com/search?q=site%3Ainstagram.com+%22abaya+store%22+%22London%2C+United+Kingdom%22+%22%40gmail.com%22+OR+%22%40yahoo.com%22+OR+%22%40hotmail.com%22+OR+%22email%22"
+      },
+      "website": "http://www.google.com/search?q=site%3Ainstagram.com+%22abaya+store%22+%22London%2C+United+Kingdom%22+%22%40gmail.com%22+OR+%22%40yahoo.com%22+OR+%22%40hotmail.com%22+OR+%22email%22",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_45d7b3e3-9c8a-4583-a145-ddecdce314c1",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Apify discovered lead",
+      "type": "b2b_contact",
+      "companyName": "Apify discovered lead",
+      "segment": "Apify discovered lead",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "http://www.google.com/search?q=site%3Ainstagram.com+%22Islamic+clothing+store%22+%22London%2C+United+Kingdom%22+%22%40gmail.com%22+OR+%22%40yahoo.com%22+OR+%22%40hotmail.com%22+OR+%22email%22",
+      "lane": "public_business_research",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 65,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "email": "safarwadi2025@outlook.com",
+        "instagram": "http://www.google.com/search?q=site%3Ainstagram.com+%22Islamic+clothing+store%22+%22London%2C+United+Kingdom%22+%22%40gmail.com%22+OR+%22%40yahoo.com%22+OR+%22%40hotmail.com%22+OR+%22email%22"
+      },
+      "website": "http://www.google.com/search?q=site%3Ainstagram.com+%22Islamic+clothing+store%22+%22London%2C+United+Kingdom%22+%22%40gmail.com%22+OR+%22%40yahoo.com%22+OR+%22%40hotmail.com%22+OR+%22email%22",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_8ed74d5c-9da1-438a-952d-62a45f951ec3",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Al Zarina",
+      "type": "b2b_contact",
+      "companyName": "Al Zarina",
+      "segment": "Clothing store",
+      "jurisdiction": "GB",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Al%20Zarina&query_place_id=ChIJI-sWH4um2EcRfOThTc45vbs",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 67,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "email": "contact@alzarina.com"
+      },
+      "website": "https://alzarina.com/",
+      "phone": "+44 20 8478 0854",
+      "address": "High Rd, Ilford IG1 1AT, United Kingdom",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_8c443787-f0c3-4366-8449-3ac07d60d816",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Jilbabs 'R' Us Green Street",
+      "type": "b2b_contact",
+      "companyName": "Jilbabs 'R' Us Green Street",
+      "segment": "Women's clothing store",
+      "jurisdiction": "GB",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Jilbabs%20'R'%20Us%20Green%20Street&query_place_id=ChIJCdbGme2n2EcRdKH9gQuPBWY",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 67,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "email": "sales@jilbabsrus.co.uk"
+      },
+      "website": "http://www.jilbabsrus.co.uk/",
+      "phone": "+44 20 3816 0778",
+      "address": "Unit 14, 232-236 Green St, London E7 8LE, United Kingdom",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_967bb2c1-40b0-46c4-adb2-e3d4b46db240",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "ALMEDINA ISLAMIC SHOP",
+      "type": "b2b_contact",
+      "companyName": "ALMEDINA ISLAMIC SHOP",
+      "segment": "Religious goods store",
+      "jurisdiction": "GB",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=ALMEDINA%20ISLAMIC%20SHOP&query_place_id=ChIJUaFZ1Kmn2EcR54jmoyWCOwk",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 59,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "email": "info@almedinaislamicshopbeckton.com"
+      },
+      "website": "https://almedinaislamicshops.com/",
+      "phone": "+44 20 7055 0440",
+      "address": "UNIT 3 Alpine Way, London E6 6LA, United Kingdom",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_07cd814c-ba40-41c5-8ca4-623499627ac4",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Apify discovered lead",
+      "type": "b2b_contact",
+      "segment": "abaya store",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "http://www.google.com/search?q=abaya+store&hl=en",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 65,
+      "intentScore": 35,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {},
+      "website": "http://www.google.com/search?q=abaya+store&hl=en",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_5bd9bf19-3283-4116-87db-718c0dcda50d",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Apify discovered lead",
+      "type": "b2b_contact",
+      "segment": "Islamic clothing store",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "http://www.google.com/search?q=Islamic+clothing+store&hl=en",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 65,
+      "intentScore": 35,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {},
+      "website": "http://www.google.com/search?q=Islamic+clothing+store&hl=en",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_1407e662-fc8b-4656-8e7c-cba1d5b459c7",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Apify discovered lead",
+      "type": "b2b_contact",
+      "segment": "modest fashion boutique",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "http://www.google.com/search?q=modest+fashion+boutique&hl=en",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 65,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {},
+      "website": "http://www.google.com/search?q=modest+fashion+boutique&hl=en",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_0969b7e7-d17c-470d-ad2e-b8d77c75fc35",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "SUNNAHGEARAPPAREL",
+      "type": "b2b_contact",
+      "segment": "Built for movement, Designed for everyday utility.\n\nSHOP NOW \n\n“Wear the Sunnah, Live the Way”.\n\n#islamicclothingstore #mensstreetwear #sunnahgearapparel #modernstreetwear",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.instagram.com/p/DYMQV5PxQ2f/",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 51,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "instagram": "sunnahgearapparel"
+      },
+      "website": "https://www.instagram.com/p/DYMQV5PxQ2f/",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_1058a165-59c4-48ab-aab0-75e863fdec15",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "SUNNAHGEARAPPAREL",
+      "type": "b2b_contact",
+      "segment": "SGA CORE 3/4 TROUSERS\n\nESSENTIAL. MODERN. FUNCTIONAL \n\nSHOP NOW \n\n“Wear the Sunnah, Live the Way”\n\n#islamicclothingstore #mensstreetwear #sunnahgearapparel #modernstreetwear",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.instagram.com/p/DYEtUJJkRS7/",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 51,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "instagram": "sunnahgearapparel"
+      },
+      "website": "https://www.instagram.com/p/DYEtUJJkRS7/",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_c258ca69-1bc6-4713-9f47-294e1da71dbc",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "HalalX | Halal Marketplace & Directory",
+      "type": "b2b_contact",
+      "segment": "3 Modest Clothing Brands in Illinois\n\nPakistella\nModest Clothing Shop\nHijabs | Dresses | Accessorie\n📍Chicago, IL\n\nBiscoti Fashion\nElegant Abayas\nStylish Dresses\n📍7247 W 87th St, Bridgeview, IL 60455\n\nEzaji\n• Luxury Salah Mat Brand\n• Doctor approved for Knee support\n📍Chicago, IL\n\nBecome a Vendor on HalalX Marketplace!\n\nFind Modest Clothing brands on HalalX!\n\n#HalalX #halalxmarketplace\n#halalmarketplace #modestclothingbrand #islamicclothingstore",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.instagram.com/p/DTYis35gFg8/",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "instagram": "halalxorg"
+      },
+      "website": "https://www.instagram.com/p/DTYis35gFg8/",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_e3589a8a-5c29-4223-b8ac-ad46e67a717e",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "SUNNAHGEARAPPAREL",
+      "type": "b2b_contact",
+      "segment": "Welcome SunnahGearApparel.\n\nSunnah Gear is streetwear built to align with the Sunnah of the beloved PBUH. Designed for those who stand firm in their faith and don’t dilute their identity. \n\nNo Trends. No Approvals. Just the Sunnah. \n\nWear the Sunnah. Love the Way\n\n#wearthesunnahlivetheway #wearthesunnah#sunnahgearapparel #mensstreetwear #islamicclothingstore",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.instagram.com/p/DTPXaN8EaXl/",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "instagram": "sunnahgearapparel"
+      },
+      "website": "https://www.instagram.com/p/DTPXaN8EaXl/",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_de23b825-e935-403f-9d85-4b303e8cea98",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Arabic Theme Apparel, Miami Florida",
+      "type": "b2b_contact",
+      "segment": "🌙 MOONLIT HEARTBEAT 💓\n\nWhere faith meets heartbeat! This beautiful sweatshirt features a crescent moon with mosque silhouette integrated into a heartbeat line - symbolizing that Islam is the pulse of our lives.\n\n✨ Premium quality fleece 🕌 Elegant minimalist design 💯 Comfortable & meaningful 🎨 Available in 10 colors: White, Black, Navy, Royal Blue, Sand, Sport Gray, Light Blue, Light Pink, Heliconia, Red 📏 Sizes: S - 3XL 👕 Also available as: Sweatshirt, Long Sleeve, T-Shirt\n\n🛒 Visit our website (link in bio) 🔍 Search: \"Moonlit Heartbeat\" or browse our Islamic collection\n\n#MoonlitHeartbeat #IslamIsLife #IslamicApparel #MuslimClothing #IslamicFashion #MuslimSweatshirt #IslamicSweatshirt #CrescentMoon #MosqueArt #IslamicWear #HalalFashion #MuslimLifestyle #FaithInHeart #IslamicClothingStore #Iman",
+      "jurisdiction": "US",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.instagram.com/p/DSo9lbZkUIG/",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {
+        "instagram": "arabic.theme.apparel"
+      },
+      "website": "https://www.instagram.com/p/DSo9lbZkUIG/",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_be2f21ad-022b-4a39-8178-8fdc514443a0",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "modest angel",
+      "type": "b2b_contact",
+      "companyName": "modest angel",
+      "segment": "Clothing store",
+      "jurisdiction": "GB",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=modest%20angel&query_place_id=ChIJM2oPrh-l2EcRiv2WP5Lh2tg",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {},
+      "website": "http://www.modestangel.co.uk/",
+      "phone": "+44 7938 855554",
+      "address": "St Aidans Ct, Barking IG11 0XH, United Kingdom",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_5b5a4ca2-c204-4739-84ee-85b0ad31c329",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "almanaar Islamic Store",
+      "type": "b2b_contact",
+      "companyName": "almanaar Islamic Store",
+      "segment": "Clothing store",
+      "jurisdiction": "GB",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=almanaar%20Islamic%20Store&query_place_id=ChIJd--uaMscdkgRzLNHoB1lC8U",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {},
+      "website": "http://www.almanaar.co.uk/",
+      "phone": "+44 20 7377 9998",
+      "address": "86A Greenfield Rd, London E1 1EJ, United Kingdom",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_8074d861-32b1-4866-8e88-324ed51f3db1",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "ALMEDINA ISLAMIC SHOP",
+      "type": "b2b_contact",
+      "companyName": "ALMEDINA ISLAMIC SHOP",
+      "segment": "Clothing store",
+      "jurisdiction": "GB",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=ALMEDINA%20ISLAMIC%20SHOP&query_place_id=ChIJUaFZ1Kmn2EcR54jmoyWCOwk",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {},
+      "website": "https://almedinaislamicshops.com/",
+      "phone": "+44 20 7055 0440",
+      "address": "UNIT 3 Alpine Way, London E6 6LA, United Kingdom",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_f80c88c5-1164-4381-aa34-eed66f647c92",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Islamic Impressions (Ilford)",
+      "type": "b2b_contact",
+      "companyName": "Islamic Impressions (Ilford)",
+      "segment": "Clothing store",
+      "jurisdiction": "GB",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Islamic%20Impressions%20(Ilford)&query_place_id=ChIJp64fwGam2EcRkhz1dqUgUBg",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {},
+      "website": "http://www.islamicimpressions.co.uk/",
+      "phone": "+44 333 305 0200",
+      "address": "267 Ilford Ln, Ilford IG1 2SD, United Kingdom",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_6a7731e8-53a5-4107-8487-bdc5a5852948",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Al Zarina",
+      "type": "b2b_contact",
+      "companyName": "Al Zarina",
+      "segment": "Clothing store",
+      "jurisdiction": "GB",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Al%20Zarina&query_place_id=ChIJI-sWH4um2EcRfOThTc45vbs",
+      "lane": "consented_inbound",
+      "consentStatus": "unknown",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 43,
+      "riskScore": 50,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {},
+      "website": "https://alzarina.com/",
+      "phone": "+44 20 8478 0854",
+      "address": "High Rd, Ilford IG1 1AT, United Kingdom",
+      "status": "candidate"
+    },
+    {
+      "id": "lead_2d526f2b-1aa4-40e7-a3a6-6ccc15079b7b",
+      "agencyId": "ag_northstar",
+      "clientId": "cl_cloudops",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "displayName": "Modest Choices",
+      "type": "b2b_contact",
+      "companyName": "Modest Choices",
+      "segment": "Clothing store",
+      "jurisdiction": "GB",
+      "sourceType": "apify_actor",
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Modest%20Choices&query_place_id=ChIJK_hGamCm2EcRX9aPRgkX6Vo",
+      "lane": "consented_inbound",
+      "consentStatus": "legitimate_interest",
+      "optOutStatus": "clear",
+      "fitScore": 85,
+      "intentScore": 43,
+      "riskScore": 28,
+      "sensitiveCategoryFlags": [],
+      "channelIdentities": {},
+      "status": "candidate"
+    }
+  ],
+  "agentRuns": [
+    {
+      "id": "run_66932186-e1e5-4f02-837c-6761998e1745",
+      "campaignId": "cmp_fd557498-0909-433a-988c-f9badd195086",
+      "status": "completed",
+      "startedAt": "2026-05-27T20:27:48.229Z",
+      "completedAt": "2026-05-27T20:27:49.699Z",
+      "summary": {
+        "leadsEvaluated": 17,
+        "approvedActions": 0,
+        "reviewActions": 17,
+        "blockedActions": 0,
+        "averageFitScore": 81
+      },
+      "decisions": [
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_8ed74d5c-9da1-438a-952d-62a45f951ec3",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_8c443787-f0c3-4366-8449-3ac07d60d816",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_967bb2c1-40b0-46c4-adb2-e3d4b46db240",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_07cd814c-ba40-41c5-8ca4-623499627ac4",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_5bd9bf19-3283-4116-87db-718c0dcda50d",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_1407e662-fc8b-4656-8e7c-cba1d5b459c7",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_0969b7e7-d17c-470d-ad2e-b8d77c75fc35",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_1058a165-59c4-48ab-aab0-75e863fdec15",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_c258ca69-1bc6-4713-9f47-294e1da71dbc",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_e3589a8a-5c29-4223-b8ac-ad46e67a717e",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_de23b825-e935-403f-9d85-4b303e8cea98",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_be2f21ad-022b-4a39-8178-8fdc514443a0",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_5b5a4ca2-c204-4739-84ee-85b0ad31c329",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_8074d861-32b1-4866-8e88-324ed51f3db1",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_f80c88c5-1164-4381-aa34-eed66f647c92",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_6a7731e8-53a5-4107-8487-bdc5a5852948",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        },
+        {
+          "status": "needs_review",
+          "channel": "email",
+          "leadId": "lead_2d526f2b-1aa4-40e7-a3a6-6ccc15079b7b",
+          "policyCodes": [
+            "UNSUPPORTED_JURISDICTION"
+          ],
+          "explanation": "The lead jurisdiction is outside the campaign's approved jurisdiction set.",
+          "requiresHumanReview": true
+        }
+      ],
+      "generatedMessages": [],
+      "toolCalls": [
+        {
+          "toolName": "consent.check",
+          "status": "success",
+          "evidence": "Checked consent, lawful basis, and suppression state across 9 active agents."
+        },
+        {
+          "toolName": "policy.evaluate",
+          "status": "success",
+          "evidence": "Applied B2B channel and jurisdiction policies."
+        },
+        {
+          "toolName": "vector.search",
+          "status": "success",
+          "evidence": "Retrieved scoped brand voice, objection handling, and approved message examples."
+        },
+        {
+          "toolName": "browser.social_action",
+          "status": "skipped",
+          "evidence": "No browser action required for this run."
+        }
+      ]
+    }
+  ],
+  "emailConnections": [],
+  "emailTemplates": [
+    {
+      "id": "tpl_b2b_coat",
+      "name": "B2B Boutique Outreach",
+      "subject": "Partnership Inquiry: Modest Coat Collection for {{companyName}}",
+      "body": "Hi {{name}},\n\nI hope this email finds you well. I was researching boutiques and stores in {{jurisdiction}} and came across {{companyName}}. Your collection looks like a wonderful fit for our new modest long coat collection.\n\nWe are offering wholesale and affiliate partnerships. Our offer: {{offer}}.\n\nWould you be open to receiving a few sample images and wholesale pricing details?\n\nBest regards,\nThe Outbound Team",
+      "createdAt": "2026-05-27T19:05:34.449Z"
+    },
+    {
+      "id": "tpl_b2c_wellness",
+      "name": "B2C Wellness Reset Offer",
+      "subject": "Special Invitation for {{name}}",
+      "body": "Hi {{name}},\n\nThanks for your interest. As an active follower, we wanted to share our latest offer: {{offer}}.\n\nThis reset is designed to help you jumpstart your nutrition and wellness goals.\n\nReply directly to this email to claim your spot or get more details!\n\nWarmly,\nAster Wellness Team",
+      "createdAt": "2026-05-27T19:05:34.449Z"
+    }
+  ],
+  "sentMessages": []
+}
