@@ -87,88 +87,68 @@ export function CommandCenter({ initialData }: CommandCenterProps) {
   const [selectedCampaignId, setSelectedCampaignId] = useState(initialData.campaigns[0]?.id ?? "");
   const [agentRun, setAgentRun] = useState<AgentRunResult | null>(null);
 
-  // New features state (loaded from local storage on mount to survive cold-starts/redeploys)
-  const [connections, setConnections] = useState<EmailConnection[]>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("falcon_smtp_connections");
-      if (saved) {
-        try { return JSON.parse(saved); } catch {}
-      }
-    }
-    return initialData.emailConnections ?? [];
-  });
-
-  const [templates, setTemplates] = useState<EmailTemplate[]>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("falcon_email_templates");
-      if (saved) {
-        try { return JSON.parse(saved); } catch {}
-      }
-    }
-    return initialData.emailTemplates ?? [];
-  });
-
+  // New features state
+  const [connections, setConnections] = useState<EmailConnection[]>([]);
+  const [templates, setTemplates] = useState<EmailTemplate[]>([]);
   const [sentMessages, setSentMessages] = useState<SentMessage[]>(initialData.sentMessages ?? []);
 
-  // 1. Persist SMTP Connections state to localStorage
+  // Load configurations and sync with ephemeral serverless DB on mount
   useEffect(() => {
-    if (connections.length > 0) {
-      localStorage.setItem("falcon_smtp_connections", JSON.stringify(connections));
-    } else {
-      localStorage.removeItem("falcon_smtp_connections");
-    }
-  }, [connections]);
+    let activeConns = initialData.emailConnections ?? [];
+    let activeTpls = initialData.emailTemplates ?? [];
 
-  // 2. Persist Templates state to localStorage
-  useEffect(() => {
-    if (templates.length > 0) {
-      localStorage.setItem("falcon_email_templates", JSON.stringify(templates));
-    } else {
-      localStorage.removeItem("falcon_email_templates");
-    }
-  }, [templates]);
-
-  // 3. Automatically upload missing configurations back to the server on mount (database sync)
-  useEffect(() => {
-    const syncDatabase = async () => {
-      // Sync SMTP Connections
-      const savedConnsStr = localStorage.getItem("falcon_smtp_connections");
-      if (savedConnsStr) {
-        try {
-          const savedConns: EmailConnection[] = JSON.parse(savedConnsStr);
-          const missingConns = savedConns.filter(
-            (c) => !initialData.emailConnections?.some((srv) => srv.id === c.id)
-          );
-          for (const conn of missingConns) {
-            await fetch("/api/connections", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(conn)
-            });
-          }
-        } catch (e) {
-          console.error("Connections sync failed:", e);
+    // Load connections from local storage
+    const savedConnsStr = localStorage.getItem("falcon_smtp_connections");
+    if (savedConnsStr) {
+      try {
+        const parsed = JSON.parse(savedConnsStr);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          activeConns = parsed;
         }
+      } catch (e) {
+        console.error("Failed to load connections from local storage:", e);
+      }
+    }
+    setConnections(activeConns);
+
+    // Load templates from local storage
+    const savedTplsStr = localStorage.getItem("falcon_email_templates");
+    if (savedTplsStr) {
+      try {
+        const parsed = JSON.parse(savedTplsStr);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          activeTpls = parsed;
+        }
+      } catch (e) {
+        console.error("Failed to load templates from local storage:", e);
+      }
+    }
+    setTemplates(activeTpls);
+
+    // Background Database Sync: Reconstruct ephemeral /tmp database on cold-start or redeploy
+    const syncDatabase = async () => {
+      // Restore connections
+      const missingConns = activeConns.filter(
+        (c) => !initialData.emailConnections?.some((srv) => srv.id === c.id)
+      );
+      for (const conn of missingConns) {
+        await fetch("/api/connections", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(conn)
+        }).catch(console.error);
       }
 
-      // Sync Templates
-      const savedTplsStr = localStorage.getItem("falcon_email_templates");
-      if (savedTplsStr) {
-        try {
-          const savedTpls: EmailTemplate[] = JSON.parse(savedTplsStr);
-          const missingTpls = savedTpls.filter(
-            (t) => !initialData.emailTemplates?.some((srv) => srv.id === t.id)
-          );
-          for (const tpl of missingTpls) {
-            await fetch("/api/templates", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(tpl)
-            });
-          }
-        } catch (e) {
-          console.error("Templates sync failed:", e);
-        }
+      // Restore templates
+      const missingTpls = activeTpls.filter(
+        (t) => !initialData.emailTemplates?.some((srv) => srv.id === t.id)
+      );
+      for (const tpl of missingTpls) {
+        await fetch("/api/templates", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(tpl)
+        }).catch(console.error);
       }
     };
 
@@ -512,7 +492,13 @@ export function CommandCenter({ initialData }: CommandCenterProps) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to connect email");
-      setConnections((prev) => [data.connection, ...prev]);
+      
+      setConnections((prev) => {
+        const next = [data.connection, ...prev];
+        localStorage.setItem("falcon_smtp_connections", JSON.stringify(next));
+        return next;
+      });
+
       setEmailForm({
         email: "",
         smtpHost: "",
@@ -535,7 +521,12 @@ export function CommandCenter({ initialData }: CommandCenterProps) {
         method: "DELETE"
       });
       if (!res.ok) throw new Error("Failed to delete connection");
-      setConnections((prev) => prev.filter((item) => item.id !== id));
+      
+      setConnections((prev) => {
+        const next = prev.filter((item) => item.id !== id);
+        localStorage.setItem("falcon_smtp_connections", JSON.stringify(next));
+        return next;
+      });
     } catch (err) {
       alert(err instanceof Error ? err.message : "Failed to remove connection");
     }
@@ -558,10 +549,18 @@ export function CommandCenter({ initialData }: CommandCenterProps) {
       if (!res.ok) throw new Error(data.error || "Failed to save template");
       
       if (templateForm.id) {
-        setTemplates((prev) => prev.map((item) => item.id === templateForm.id ? data.template : item));
+        setTemplates((prev) => {
+          const next = prev.map((item) => item.id === templateForm.id ? data.template : item);
+          localStorage.setItem("falcon_email_templates", JSON.stringify(next));
+          return next;
+        });
         setTemplateStatusMessage("Template updated successfully!");
       } else {
-        setTemplates((prev) => [data.template, ...prev]);
+        setTemplates((prev) => {
+          const next = [data.template, ...prev];
+          localStorage.setItem("falcon_email_templates", JSON.stringify(next));
+          return next;
+        });
         setTemplateStatusMessage("Template created successfully!");
       }
       setTemplateForm({ id: "", name: "", subject: "", body: "", isHtml: false, htmlContent: "" });
@@ -579,7 +578,12 @@ export function CommandCenter({ initialData }: CommandCenterProps) {
         method: "DELETE"
       });
       if (!res.ok) throw new Error("Failed to delete template");
-      setTemplates((prev) => prev.filter((item) => item.id !== id));
+      
+      setTemplates((prev) => {
+        const next = prev.filter((item) => item.id !== id);
+        localStorage.setItem("falcon_email_templates", JSON.stringify(next));
+        return next;
+      });
     } catch (err) {
       alert(err instanceof Error ? err.message : "Failed to remove template");
     }
