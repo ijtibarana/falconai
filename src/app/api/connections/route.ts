@@ -10,19 +10,31 @@ export function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { email, smtpHost, smtpPort, smtpUser, smtpPass, provider } = body;
+    const { id, email, smtpHost, smtpPort, smtpUser, smtpPass, provider, isActive, createdAt } = body;
 
     if (!email || !smtpHost || !smtpPort || !smtpUser || !smtpPass) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
+    // Prevent duplicate entries during client sync
+    const dbConnections = listEmailConnections();
+    const exists = id && dbConnections.some((c) => c.id === id);
+
+    if (exists) {
+      const existing = dbConnections.find((c) => c.id === id);
+      return NextResponse.json({ connection: existing }, { status: 200 });
+    }
+
     const connection = createEmailConnection({
+      id,
       email,
       smtpHost,
       smtpPort: Number(smtpPort),
       smtpUser,
       smtpPass,
-      provider: provider || "smtp"
+      provider: provider || "smtp",
+      isActive,
+      createdAt
     });
 
     return NextResponse.json({ connection }, { status: 201 });

@@ -306,13 +306,18 @@ export function listEmailConnections() {
   return db.emailConnections;
 }
 
-export function createEmailConnection(input: Omit<EmailConnection, "id" | "isActive" | "createdAt">) {
+export function createEmailConnection(input: Partial<EmailConnection> & { email: string; smtpHost: string; smtpPort: number; smtpUser: string; smtpPass: string }) {
   db = loadDb();
   const conn: EmailConnection = {
-    id: `conn_${randomUUID()}`,
-    ...input,
-    isActive: true,
-    createdAt: new Date().toISOString()
+    id: input.id || `conn_${randomUUID()}`,
+    email: input.email,
+    smtpHost: input.smtpHost,
+    smtpPort: input.smtpPort,
+    smtpUser: input.smtpUser,
+    smtpPass: input.smtpPass,
+    provider: input.provider || "smtp",
+    isActive: input.isActive ?? true,
+    createdAt: input.createdAt || new Date().toISOString()
   };
   db.emailConnections.unshift(conn);
   saveDb(db);
@@ -332,12 +337,16 @@ export function listEmailTemplates() {
   return db.emailTemplates;
 }
 
-export function createEmailTemplate(input: Omit<EmailTemplate, "id" | "createdAt">) {
+export function createEmailTemplate(input: Partial<EmailTemplate> & { name: string; subject: string; body: string }) {
   db = loadDb();
   const tpl: EmailTemplate = {
-    id: `tpl_${randomUUID()}`,
-    ...input,
-    createdAt: new Date().toISOString()
+    id: input.id || `tpl_${randomUUID()}`,
+    name: input.name,
+    subject: input.subject,
+    body: input.body,
+    isHtml: input.isHtml || false,
+    htmlContent: input.htmlContent || "",
+    createdAt: input.createdAt || new Date().toISOString()
   };
   db.emailTemplates.unshift(tpl);
   saveDb(db);

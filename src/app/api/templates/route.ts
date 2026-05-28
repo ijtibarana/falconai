@@ -10,17 +10,25 @@ export function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { id, name, subject, body: tplBody } = body;
+    const { id, name, subject, body: tplBody, isHtml, htmlContent, createdAt } = body;
 
     if (!name || !subject || !tplBody) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
     if (id) {
-      const template = updateEmailTemplate(id, { name, subject, body: tplBody });
-      return NextResponse.json({ template }, { status: 200 });
+      const dbTemplates = listEmailTemplates();
+      const exists = dbTemplates.some((t) => t.id === id);
+      if (exists) {
+        const template = updateEmailTemplate(id, { name, subject, body: tplBody, isHtml, htmlContent });
+        return NextResponse.json({ template }, { status: 200 });
+      } else {
+        // Sync / recreate it with the exact ID!
+        const template = createEmailTemplate({ id, name, subject, body: tplBody, isHtml, htmlContent, createdAt });
+        return NextResponse.json({ template }, { status: 201 });
+      }
     } else {
-      const template = createEmailTemplate({ name, subject, body: tplBody });
+      const template = createEmailTemplate({ name, subject, body: tplBody, isHtml, htmlContent });
       return NextResponse.json({ template }, { status: 201 });
     }
   } catch (error) {

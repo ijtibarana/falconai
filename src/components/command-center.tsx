@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Activity,
   AlertTriangle,
@@ -87,10 +87,93 @@ export function CommandCenter({ initialData }: CommandCenterProps) {
   const [selectedCampaignId, setSelectedCampaignId] = useState(initialData.campaigns[0]?.id ?? "");
   const [agentRun, setAgentRun] = useState<AgentRunResult | null>(null);
 
-  // New features state
-  const [connections, setConnections] = useState<EmailConnection[]>(initialData.emailConnections ?? []);
-  const [templates, setTemplates] = useState<EmailTemplate[]>(initialData.emailTemplates ?? []);
+  // New features state (loaded from local storage on mount to survive cold-starts/redeploys)
+  const [connections, setConnections] = useState<EmailConnection[]>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("falcon_smtp_connections");
+      if (saved) {
+        try { return JSON.parse(saved); } catch {}
+      }
+    }
+    return initialData.emailConnections ?? [];
+  });
+
+  const [templates, setTemplates] = useState<EmailTemplate[]>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("falcon_email_templates");
+      if (saved) {
+        try { return JSON.parse(saved); } catch {}
+      }
+    }
+    return initialData.emailTemplates ?? [];
+  });
+
   const [sentMessages, setSentMessages] = useState<SentMessage[]>(initialData.sentMessages ?? []);
+
+  // 1. Persist SMTP Connections state to localStorage
+  useEffect(() => {
+    if (connections.length > 0) {
+      localStorage.setItem("falcon_smtp_connections", JSON.stringify(connections));
+    } else {
+      localStorage.removeItem("falcon_smtp_connections");
+    }
+  }, [connections]);
+
+  // 2. Persist Templates state to localStorage
+  useEffect(() => {
+    if (templates.length > 0) {
+      localStorage.setItem("falcon_email_templates", JSON.stringify(templates));
+    } else {
+      localStorage.removeItem("falcon_email_templates");
+    }
+  }, [templates]);
+
+  // 3. Automatically upload missing configurations back to the server on mount (database sync)
+  useEffect(() => {
+    const syncDatabase = async () => {
+      // Sync SMTP Connections
+      const savedConnsStr = localStorage.getItem("falcon_smtp_connections");
+      if (savedConnsStr) {
+        try {
+          const savedConns: EmailConnection[] = JSON.parse(savedConnsStr);
+          const missingConns = savedConns.filter(
+            (c) => !initialData.emailConnections?.some((srv) => srv.id === c.id)
+          );
+          for (const conn of missingConns) {
+            await fetch("/api/connections", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(conn)
+            });
+          }
+        } catch (e) {
+          console.error("Connections sync failed:", e);
+        }
+      }
+
+      // Sync Templates
+      const savedTplsStr = localStorage.getItem("falcon_email_templates");
+      if (savedTplsStr) {
+        try {
+          const savedTpls: EmailTemplate[] = JSON.parse(savedTplsStr);
+          const missingTpls = savedTpls.filter(
+            (t) => !initialData.emailTemplates?.some((srv) => srv.id === t.id)
+          );
+          for (const tpl of missingTpls) {
+            await fetch("/api/templates", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(tpl)
+            });
+          }
+        } catch (e) {
+          console.error("Templates sync failed:", e);
+        }
+      }
+    };
+
+    syncDatabase();
+  }, [initialData.emailConnections, initialData.emailTemplates]);
 
   const [isConnectingEmail, setIsConnectingEmail] = useState(false);
   const [isSavingTemplate, setIsSavingTemplate] = useState(false);
