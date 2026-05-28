@@ -24,7 +24,20 @@ import type {
   SentMessage
 } from "./types";
 
-const DB_FILE = path.join(process.cwd(), ".data.json");
+// On Vercel (and other serverless platforms) process.cwd() is read-only (/var/task).
+// We detect this at runtime and redirect writes to /tmp which is always writable.
+function resolveDbPath(): string {
+  const cwdPath = path.join(process.cwd(), ".data.json");
+  try {
+    // Quick write-access probe: if it throws EROFS / EACCES, fall back to /tmp
+    fs.accessSync(path.dirname(cwdPath), fs.constants.W_OK);
+    return cwdPath;
+  } catch {
+    return "/tmp/.data.json";
+  }
+}
+
+const DB_FILE = resolveDbPath();
 
 interface DbSchema {
   campaigns: Campaign[];
@@ -53,6 +66,18 @@ const DEFAULT_TEMPLATES: EmailTemplate[] = [
 ];
 
 function loadDb(): DbSchema {
+  // If using /tmp, try to seed from the bundled .data.json on first cold-start
+  if (DB_FILE.startsWith("/tmp") && !fs.existsSync(DB_FILE)) {
+    const bundled = path.join(process.cwd(), ".data.json");
+    if (fs.existsSync(bundled)) {
+      try {
+        fs.copyFileSync(bundled, DB_FILE);
+      } catch {
+        // ignore copy errors – we'll just start fresh
+      }
+    }
+  }
+
   if (!fs.existsSync(DB_FILE)) {
     return { campaigns: [], leads: [], agentRuns: [], emailConnections: [], emailTemplates: DEFAULT_TEMPLATES, sentMessages: [] };
   }
