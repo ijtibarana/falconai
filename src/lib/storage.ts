@@ -27,10 +27,21 @@ import type {
 // On Vercel (and other serverless platforms) process.cwd() is read-only (/var/task).
 // We detect this at runtime and redirect writes to /tmp which is always writable.
 function resolveDbPath(): string {
+  if (
+    process.env.VERCEL === "1" ||
+    process.env.VERCEL_ENV !== undefined ||
+    process.env.NOW_BUILDER !== undefined ||
+    process.env.AWS_LAMBDA_FUNCTION_NAME !== undefined
+  ) {
+    return "/tmp/.data.json";
+  }
+
   const cwdPath = path.join(process.cwd(), ".data.json");
   try {
-    // Quick write-access probe: if it throws EROFS / EACCES, fall back to /tmp
-    fs.accessSync(path.dirname(cwdPath), fs.constants.W_OK);
+    // Try a real write/delete operation since fs.accessSync can be unreliable in serverless containers
+    const testFile = path.join(process.cwd(), ".write_test_tmp");
+    fs.writeFileSync(testFile, "test");
+    fs.unlinkSync(testFile);
     return cwdPath;
   } catch {
     return "/tmp/.data.json";
