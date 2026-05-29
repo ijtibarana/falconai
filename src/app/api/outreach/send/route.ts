@@ -43,7 +43,11 @@ export async function POST(request: Request) {
         subject: subject
       };
 
-      if (isHtml) {
+      // Auto-detect if body contains HTML tags to guarantee rich rendering in all client environments
+      const looksLikeHtml = /^\s*<!DOCTYPE/i.test(emailBody) || /<html|<div|<body|<p|<br|<table|<link/i.test(emailBody);
+      const sendAsHtml = isHtml || looksLikeHtml;
+
+      if (sendAsHtml) {
         mailOptions.html = emailBody;
       } else {
         mailOptions.text = emailBody;
